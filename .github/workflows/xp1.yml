@@ -27,8 +27,8 @@ jobs:
       - name: npm install
         run: |
           npm install 'got'
-          cd ~/scripts
           npm install
+          cd ~/scripts
       - name: '运行 【小普循环】'
         run: |
           cd ~/scripts
