@@ -31,8 +31,10 @@ jobs:
       - name: '运行 【笑谱】'
         run: |
           cd ~/scripts/Scripts
-          node xp.js
+          node xp_use.js
         env:
           VIDEOHEADER: ${{ secrets.VIDEOHEADER }}
           VIDEOBODY: ${{ secrets.VIDEOBODY }}
-          GOLDBODY: ${{ secrets.GOLDBODY}}
+          GOLDBODY: ${{ secrets.GOLDBODY }}
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
