@@ -2,12 +2,12 @@
 tgchannel：https://t.me/ZhiYi_Script
 github：https://github.com/ZhiYi-N/script
 boxjs：https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/ZhiYi-N.boxjs.json
-死循环改自：https://github.com/qukaiyuan/Private-Script
+改自：https://github.com/qukaiyuan/Private-Script/blob/master/Scripts/xp.js
 转载留个名字，谢谢
 邀请码：
-来笑谱，一起领20元现金！￥10.uPg+O1jc9EXq
+来笑谱，一起领20元现金！￥10.c3Zdady#*H^7
 1.长按【复制】整条信息
-2.下载并打开笑谱App：http://jzi7.cn/7szkKX
+2.下载并打开笑谱App：http://jzi7.cn/7szkKX 
 谢谢
 作者：执意ZhiYi-N
 目前只有看视频，群友推荐，欢迎推荐
@@ -46,11 +46,11 @@ if ($.isNode()) {
    minute = (new Date()).getMinutes();
 }
 //CK运行
-/* let isGetCookie = typeof $request !== 'undefined'
+let isGetCookie = typeof $request !== 'undefined'
 if (isGetCookie) {
    GetCookie();
    $.done()
-} */
+} 
 if ($.isNode()) {
 //video
   if (process.env.VIDEOHEADER && process.env.VIDEOHEADER.indexOf('#') > -1) {
@@ -61,7 +61,7 @@ if ($.isNode()) {
    videoheader = process.env.VIDEOHEADER.split('\n');
    console.log(`您选择的是用换行隔开\n`)
   } else {
-   videoheader = [process.env.VIDEOHEADER]
+   videoheader = process.env.VIDEOHEADER.split()
   };
   if (process.env. VIDEOBODY && process.env.VIDEOBODY.indexOf('#') > -1) {
    videobody = process.env.VIDEOBODY.split('#');
@@ -77,7 +77,7 @@ if ($.isNode()) {
   else if (process.env.GOLDBODY && process.env.GOLDBODY.split('\n').length > 0) {
    goldbody = process.env.GOLDBODY.split('\n');
   } else  {
-   goldbody = [process.env.GOLDBODY]
+   goldbody = process.env.GOLDBODY.split()
   };
 //video
   Object.keys(videoheader).forEach((item) => {
@@ -113,32 +113,22 @@ if (!videoheaderArr[0]) {
     $.msg($.name, '【提示】请先获取笑谱一cookie')
     return;
   }
-  
-  console.log(`------------- 共${videoheaderArr.length}个账号----------------\n`)
-
-  let count = 0
-  while (true) {
-    count++
-    console.log(`============开始第${count}次执行，完成后将摸鱼2分钟=============`)
-    for (let i = 0; i < videoheaderArr.length; i++) {
-      if (videoheaderArr[i]) {
-        message = ''
-        videoheader = videoheaderArr[i];
-        videobody = videobodyArr[i];
-        goldbody = goldbodyArr[i];
-        $.index = i + 1;
-        console.log(`\n开始【笑谱${$.index}】`)
-        //await invite()
-        await profit()
-        await control()
-        // await watch_video()
-        await showmsg()
-
-        await $.wait(120000)
-    }
-   }
-    $.log(`\n\n`)
+   console.log(`------------- 共${videoheaderArr.length}个账号----------------\n`)
+  for (let i = 0; i < videoheaderArr.length; i++) {
+    if (videoheaderArr[i]) {
+      message = ''
+      videoheader = videoheaderArr[i];
+      videobody = videobodyArr[i];
+      goldbody = goldbodyArr[i];
+      $.index = i + 1;
+      console.log(`\n开始【笑谱${$.index}】`)
+      //await invite()
+      await profit()
+      await control()
+      //await watch_video()
+      await showmsg()
   }
+ }
 })()
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
