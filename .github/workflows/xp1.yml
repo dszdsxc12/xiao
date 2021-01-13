@@ -10,7 +10,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: xp_u
+    types: xp1
 jobs:
   build:
 
@@ -39,7 +39,7 @@ jobs:
           npm install
       - name: '运行 【小普循环】'
         run: |
-          node xp_u.js
+          node xp1.js
         env:
           VIDEOHEADER: ${{ secrets.VIDEOHEADER }}
           VIDEOBODY: ${{ secrets.VIDEOBODY }}
