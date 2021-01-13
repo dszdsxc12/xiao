@@ -39,7 +39,7 @@ jobs:
           npm install
       - name: '运行 【小普循环】'
         run: |
-          node xp1.js
+          node xp_u.js
         env:
           VIDEOHEADER: ${{ secrets.VIDEOHEADER }}
           VIDEOBODY: ${{ secrets.VIDEOBODY }}
